@@ -92,7 +92,69 @@ class singleLink() {
 ```
 
 - 双向链表
+
+```javascript
+insert(ele, item) {
+  let newNode = new Node(ele)
+  let current = this.find(item)
+  newNode.next = current.next
+  current.next.previous = newNode
+  current.next = newNode
+  newNode.previous = current
+}
+remove(ele) {
+  let item = this.find(ele)
+
+  item.next.previous = item.previous
+  item.previous.next = item.next
+
+  item.next = null
+  item.previous = null
+}
+```
+
 - 循环链表
+
+> 循环链表中需要一个 pointer 指向一直指向头部
+
+```javascript
+// 打印全部
+function display() {
+  let current = this.head
+  while (current.next && current.next.element === this.head.element) {
+         console.log(current.element)
+         current = current.next
+  }
+}
+
+// 移动
+function advace(n) {
+  if (n <= 0) {
+    return
+  }
+  while (n > 0) {
+     if (this.current.next.element === this.head.element) {
+       this.current = this.current.next.next
+     } else {
+       this.current = this.current.next
+     }
+     n--
+  }
+}
+
+// 大小
+function size() {
+  let size = 0
+  let current = this.head
+  while (current.next && current.next.element !== this.head.elemet) {
+      current = current.next
+      len++
+   }
+  return size
+}
+```
+
+
 
 ## 案例
 
