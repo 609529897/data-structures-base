@@ -168,7 +168,7 @@ function main() {
 
 function ring(n, m) {
   const linkedList = [];
-  for(let i = 1, i <= n; i++) {
+  for(let i = 1; i <= n; i++) {
     linkedList.push(i)
   }
   let k = 2;
