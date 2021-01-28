@@ -125,9 +125,37 @@ class BinaryTree {
 ## 前中后序遍历
 
 ```javascript
+function* __transverse(node) {
+  if (!node) return;
 
+  yield* this.__transverse(node.lefnt);
+  yield node;
+  yield* this.__transverse(node.right);
+}
 ```
 
 ## 层序遍历
+
+```javascript
+function levelOrder(root) {
+  let res = [];
+  let queue = [root];
+
+  while (queue.length) {
+    let node = queue.shift();
+
+    if (node.left) {
+      queue.push(node.left);
+    }
+
+    if (node.right) {
+      queue.push(node.right);
+    }
+
+    res.push(node.val);
+  }
+  return res;
+}
+```
 
 ## 字典树
